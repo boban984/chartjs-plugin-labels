@@ -10,7 +10,7 @@
   'use strict';
 
   if (typeof Chart === 'undefined') {
-    console.error('Can not find Chart object.');
+    console.warn('Can not find Chart object.');
     return;
   }
 
@@ -430,7 +430,7 @@
     return image;
   };
 
-  Chart.plugins.register({
+  typeof Chart !== 'undefined' && Chart.plugins.register({
     id: 'labels',
     beforeDatasetsUpdate: function (chart, options) {
       if (!SUPPORTED_TYPES[chart.config.type]) {
